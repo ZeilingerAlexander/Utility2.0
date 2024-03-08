@@ -1,0 +1,5 @@
+<Button.Resources>
+    <Style TargetType="Border">
+        <Setter Property="CornerRadius" Value="10"/>
+    </Style>
+</Button.Resources>
