@@ -1,0 +1,1 @@
+string path = System.IO.Path.Combine(Environment.CurrentDirectory, filename);
