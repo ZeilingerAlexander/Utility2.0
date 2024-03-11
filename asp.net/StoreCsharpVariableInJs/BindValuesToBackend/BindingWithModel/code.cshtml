@@ -1,0 +1,21 @@
+<!--Frontend cshtml code-->
+
+
+<!--For Single-Field-Inputs-->
+
+<!--Inside a Form create a Form Group to contain the element to be bound-->
+<!--This will bind it over the asp-for attribute and show validation over the span element-->
+<div class="form-group">
+    <label asp-for="ExampleName" class="control-label"></label>
+    <input asp-for="ExampleName" class="form-control" />
+    <span asp-validation-for="ExampleName" class="text-danger"></span>
+</div>
+
+
+<!--For Multiple-Select-Drowpdown-->
+<!--This will create a dropdown menu where user can select from values loaded from Viewbag.ExampleNames-->
+<!--The values can also be loaded from other entries, or can be custom specified by adding a foreach loop creating option elements inside the select-->
+<div class="form-group">
+    <label asp-for="ExampleName" class="control-label"></label>
+    <select asp-for="ExampleName" class="form-control" asp-items="ViewBag.ExampleNames"></select>
+</div>
