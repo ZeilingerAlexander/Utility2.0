@@ -1,0 +1,32 @@
+<!--The Frontent cshtml code-->
+
+<!--If not present add a csharp code block at the top of your project-->
+@{
+    // this will load the dictionary into the current view
+    // Not necessary but adds a layer of abstraction, you could also implement checks for if the provided value is null here
+    Dictionary<int, string> ExampleDictLoaded = ViewBag.ExampleDictLoaded;
+}
+
+<!--Somewhere inside your html, preferrably at the bottom 2 hidden inputs, one for keys and one for values-->
+<input type="hidden" id="ExampleKeys" value="@string.Join(",", ExampleDictLoaded.Keys)" />
+<input type="hidden" id="ExampleValues" value="@string.Join(",", ExampleDictLoaded.Values)" />
+
+
+<!--Inside the @section Scripts-->
+@section Scripts {
+    <script type="text/javascript">
+        // load the dictionary, in this example I use a Map since it represents a Dictionary closely
+        // You can can use any other form of storing them
+        let ExampleKeys = document.getElementById("ExampleKeys").value.split(",");
+        let ExampleValues = document.getElementById("ExampleValues").value.split(",");
+        let ExampleMap = new Map();
+
+        // This again is just for the Map, no need to put this in your code if you already loded them fully above
+        document.addEventListener("DOMContentLoaded", () => {
+            // Load the values into a map
+            for (let i = 0; i < ExampleKeys.length; i++) {
+                ExampleMap.set(ExampleKeys[i], ExampleValues[i]);
+            }
+        });
+    </script>
+}
